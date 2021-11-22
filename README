@@ -1,0 +1,63 @@
+%
+% TP EDP
+% 
+
+%
+% Utilisation des fichiers
+% Le fichier elliptic.m contient 2 options
+% L'option 1 permet de tracer la solution pour le maille carré
+% avec la taille du maillage n saisie après
+% L'option 2 permet de tracer la solution pour le maillage fourni
+% Le fichier erreur.m permet de tracer l'erreur de résolution
+% pour obtenir l'ordre de discrétisation
+% Le fichier methode_directe contient la résolution par la méthode directe
+%
+
+%
+% Fichier de donnees concernant la resolution de l'EDP elliptique
+%
+
+*.dat            : fichiers de donnees concernant un exemple de maillage et ses conditions limites
+u_d.m            : solution a la frontiere de Dirichlet
+maillage_carre.m : maillage a base d'elements triangulaires
+f.m              : fonction f
+g.m		         : fonction g
+f1.m             : fonction f pour la solution exacte
+u_exacte.m       : solution exacte
+
+%
+% Fichiers a ecrire par les etudiants
+%
+
+elliptic.m         : fichier principal
+erreur.m           : tracé de l'erreur pour triangle
+methode_directe.m  : tracé du pourcentage d'éléments non nul pour la méthode directe
+M_elements3.m:     : matrice de raideur élémentaire pour triangle
+M_elements4.m:     : matrice de raideur élémentaire pour quadrangle
+raideur_triangle.m : matrice de raideur sur un triangle
+raideur_quadrangle.m : matrice de raideur sur un quadrangle
+b_elements3.m      : second membre b pour triangle
+b_elements4.m      : second membre b pour quadrangle
+
+%
+% Visualisation
+%
+
+show.m            : utile pour la visualisation
+
+%
+% Utilisation des exemples fournis
+%
+
+% Premiere option
+>>[coordinates, elements3, elements4, dirichlet, neumann] = maillage_carre(n);
+
+pour charger un maillage de n*n points, avec uniquement des elements finis de type triangle
+
+% Seconde option
+>>load('nomfichier.dat');
+
+pour charger le fichier nomfichier.dat
+
+% Visualisation du maillage (avec une solution nulle)
+>>show(elements3,elements4,coordinates,zeros(size(coordinates,1),1));
